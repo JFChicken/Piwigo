@@ -212,7 +212,7 @@ SELECT status
   $username = $_POST['username'];
   $password = $_POST['password'];
 
-  if(!@get_magic_quotes_gpc())
+  if ($conf['use_exif'] and !function_exists('exif_read_data'))
   {
     $username = pwg_db_real_escape_string($username);
   }
